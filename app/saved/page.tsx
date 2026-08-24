@@ -1,0 +1,5 @@
+"use client";
+import { useEffect,useState } from "react";
+import { Bookmark, ArrowRight } from "lucide-react";
+import Header from "@/components/Header";import { fallbackPrograms } from "@/lib/data";
+export default function Saved(){const [ids,setIds]=useState<number[]>([]);useEffect(()=>setIds(JSON.parse(localStorage.getItem("saved")||"[]")),[]);const items=fallbackPrograms.filter(p=>ids.includes(p.id));return <main className="page-bg"><Header/><div className="content-width saved-page"><p className="page-kicker">관심 사업</p><h1>저장한 지원사업</h1><p>나중에 다시 확인하고 싶은 사업을 모아봤어요.</p>{items.length?<div className="saved-list">{items.map(p=><a href={`/programs/${p.id}`} className="saved-item" key={p.id}><span className={`status ${p.status}`}>{p.status}</span><div><h2>{p.title}</h2><p>{p.organization} · {p.benefit}</p></div><ArrowRight/></a>)}</div>:<div className="empty"><Bookmark/><h2>아직 저장한 사업이 없어요</h2><p>관심 있는 사업의 북마크 버튼을 눌러 저장해 보세요.</p><a className="primary-action" href="/search">지원사업 찾아보기</a></div>}</div></main>}
