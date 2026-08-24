@@ -1,0 +1,1 @@
+export type Program = { id:number; title:string; organization:string; summary:string; benefit:string; target:string; region:string; category:string; status:string; period:string; deadline:string; requirements:string[]; documents:string[]; how_to:string; official_url:string; notice_url:string; contact:string; source:string; tags:string };
