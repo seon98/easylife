@@ -41,6 +41,7 @@ export default function DataPage() {
   });
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
+  // 검색어가 바뀔 때 최대 500건의 수집 원본 목록을 다시 조회한다.
   const load = (q = "") => {
     setLoading(true);
     fetch(`/api/programs?q=${encodeURIComponent(q)}&limit=500`)
@@ -49,6 +50,7 @@ export default function DataPage() {
       .finally(() => setLoading(false));
   };
   useEffect(() => {
+    // 최초 진입에는 목록과 전체 수집 통계를 함께 준비한다.
     load();
     fetch("/api/collected/stats")
       .then((response) => response.json())

@@ -5,7 +5,10 @@ import sqlite3
 from collectors.bizinfo import DB_PATH, initialize
 import psycopg
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://easylife:easylife_local@localhost:5432/easylife")
+DATABASE_URL = os.getenv(
+    "DATABASE_URL", "postgresql://easylife:easylife_local@localhost:5432/easylife"
+)
+
 
 def migrate() -> int:
     """개발용 SQLite 데이터를 운영용 PostgreSQL 스키마로 반복 이전한다."""
@@ -25,4 +28,6 @@ def migrate() -> int:
             target.execute(sql, row)
     return len(rows)
 
-if __name__ == "__main__": print(f"PostgreSQL 이전 완료: {migrate()}개")
+
+if __name__ == "__main__":
+    print(f"PostgreSQL 이전 완료: {migrate()}개")

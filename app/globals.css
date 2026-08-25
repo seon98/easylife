@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap");
-/* Broad browser compatibility for flex alignment. */
+/* 서비스 전역 색상, 글꼴, 레이아웃 기본값 */
 :root {
   --ink: #17231f;
   --muted: #69736f;
@@ -78,6 +78,7 @@ select {
 .mobile-menu {
   display: none;
 }
+/* 홈: 자연어 검색을 가장 먼저 보여주는 첫 화면 */
 .hero {
   min-height: 580px;
   text-align: center;
@@ -349,6 +350,7 @@ footer p {
   max-width: none;
   border-bottom: 1px solid var(--line);
 }
+/* 검색: 검색창, 필터, 결과 카드 */
 .search-top {
   background: #fff;
   padding: 52px 0 42px;
@@ -576,6 +578,7 @@ footer p {
 .empty h2 {
   color: var(--ink);
 }
+/* 상세: 핵심 정보, 공식 공고 이동, 신청 체크리스트 */
 .detail-wrap {
   padding-top: 30px;
   padding-bottom: 80px;
@@ -991,6 +994,7 @@ footer p {
     font-size: 17px;
   }
 }
+/* 수집 데이터와 운영자 검수 화면 */
 .data-hero {
   background: #fff;
   padding: 54px 0 44px;
@@ -1250,6 +1254,7 @@ footer p {
     grid-template-columns: 1fr;
   }
 }
+/* 홈: 접수 상태에 따라 자동 순환하는 최신 공고 */
 .news-section {
   padding: 78px 0 72px;
   background: #fff;
@@ -1544,6 +1549,7 @@ footer p {
     padding: 0 10px;
   }
 }
+/* 자연어 조건 설명, 사업 비교, 정보 완성도 */
 .condition-summary {
   margin-top: 18px;
   max-width: 760px;

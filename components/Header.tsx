@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Bookmark, Menu, Sparkles } from "lucide-react";
+// 모든 사용자 페이지에서 재사용하는 서비스 전역 내비게이션이다.
 export default function Header() {
   return (
     <header className="site-header">

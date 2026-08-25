@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { fallbackPrograms } from "@/lib/data";
 export default function Saved() {
   const [ids, setIds] = useState<number[]>([]);
+  // 현재 MVP는 계정 대신 브라우저 저장소에서 관심 사업 ID를 복원한다.
   useEffect(
     () => setIds(JSON.parse(localStorage.getItem("saved") || "[]")),
     [],

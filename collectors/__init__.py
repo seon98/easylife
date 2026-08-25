@@ -1,1 +1,1 @@
-"""Official, keyless public-data collectors."""
+"""API 키 없이 접근 가능한 공식 공개 데이터 수집기 패키지."""

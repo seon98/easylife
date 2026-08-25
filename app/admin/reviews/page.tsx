@@ -22,6 +22,7 @@ type Item = {
 export default function ReviewsPage() {
   const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
+  // 자동 추출이 완료된 공고를 미검수 순서로 다시 불러온다.
   const load = () => {
     setLoading(true);
     fetch("/api/admin/reviews?limit=100")
@@ -30,6 +31,7 @@ export default function ReviewsPage() {
       .finally(() => setLoading(false));
   };
   useEffect(load, []);
+  // 승인 여부만 저장하고 공식 원문이나 자동 추출 결과는 변경하지 않는다.
   const update = (id: string, status: string) =>
     fetch(`/api/admin/reviews/${id}`, {
       method: "PATCH",
