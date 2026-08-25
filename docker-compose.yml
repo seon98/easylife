@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: easylife
+      POSTGRES_USER: easylife
+      POSTGRES_PASSWORD: easylife_local
+    ports:
+      - "5432:5432"
+    volumes:
+      - easylife_pg:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U easylife"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+volumes:
+  easylife_pg:
